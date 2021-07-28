@@ -1,0 +1,14 @@
+.done-icon {
+    color: green;
+}
+.done-icon svg {
+    fill: green;
+}
+
+
+.error-icon {
+    color: red;
+}
+.error-icon svg {
+    fill: red;
+}

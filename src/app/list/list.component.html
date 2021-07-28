@@ -1,0 +1,32 @@
+<div *ngIf="isNumberList then numbersList else missingFile"></div>
+
+<ng-template #missingFile>
+<div>{{ "<\MISSING DATA>" }} </div>
+</ng-template>
+
+<ng-template #numbersList>
+<ul>
+    <div *ngFor="let Number of NumberList">
+      <div *ngIf="Number.additionalValue">
+        
+        <mat-list>
+          <mat-list-item>
+            <mat-icon class="done-icon">done</mat-icon>
+            {{Number.value}} {{ Number.action=='add'?  ' + ' +Number.additionalValue : ' * ' + Number.additionalValue }} =  {{ (( Number.action=='add') ?   (Number.value + Number.additionalValue) : (Number.value * Number.additionalValue)) }}
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+      <div *ngIf="Number.additionalValue==''">
+
+        <mat-list>
+          <mat-list-item>
+            <mat-icon class="error-icon">close</mat-icon>
+           {{ "<\MISSING DATA>" }} 
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+      </div>
+</ul>
+</ng-template>
