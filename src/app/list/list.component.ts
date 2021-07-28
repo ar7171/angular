@@ -50,12 +50,12 @@ export class ListComponent implements OnInit {
      this.getNumbersList
       .pipe(
         mergeMap((result) => {
-          let allIds = result.map(row => this.DataRecieverService.getJsons(row.action));
-          const numbers=forkJoin(...allIds);
+          let allNums = result.map(row => this.DataRecieverService.getJsons(row.action));
+          const numbers=forkJoin(...allNums);
           const num=numbers.pipe(map((idDataArray) => {
 
-            result.forEach((eachContact, index) => {
-              eachContact.additionalValue = idDataArray[index][0].value;
+            result.forEach((eachNum, index) => {
+              eachNum.additionalValue = idDataArray[index][0].value;
             })
             
             return result;
